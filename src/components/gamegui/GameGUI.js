@@ -184,6 +184,11 @@ async function handleMintClick(event) {
       toggleMinted( !user_minted_NFT );
       mint_button_text.textContent = "View LMNTL";
       //mint_button.href = window.location['origin'] + '/avatar';
+      document.getElementById('gameGUIBox').style.display = "none";
+      current_scene += 1;
+      console.log(current_scene);
+      scene_image = scene_dict[current_scene][element_selected];
+      document.getElementById('sceneImage').src = scene_image;
     }
   } else {
     window.location.href = window.location['origin'] + '/avatar';
@@ -212,7 +217,8 @@ function handleSceneClick(event) {
     scene_image = scene_dict[current_scene];
     event.target.src = scene_image;
     if (current_scene === 8) {
-      document.getElementById('gameGUICenter').style.display = "block";
+      document.getElementById('gameGUIBox').style.display = "";
+      document.getElementById('mintButtonBottom').style.display = "";
     }
   }
 }
@@ -231,13 +237,8 @@ return (
     </div>
     <div className='gameGUIBoxSubTitle'></div>
     <div className='gameGUIContainer SlideRightAnimation'>
-      <div className='sceneContainer'>
-        <div className='sceneFrame' onClick={handleSceneClick}>
-          <img src={scene_image} alt='' id='sceneImage' className='sceneImage' />
-        </div>
-      </div>
-      <div className='gameGUICenter' id='gameGUICenter' style={(current_scene === 8) ? {display: "block"} : {display: "none"}}>
-        <div className='gameGUIBox'>
+      <div className='gameGUICenter' id='gameGUICenter'>
+        <div className='gameGUIBox' id='gameGUIBox' style={(current_scene === 8) ? {display: ""} : {display: "none"}}>
           <div className='LMNTLButton' onClick={handleLMNTLClick}>
             <img src={fireLMNTL} alt='Fire' id='Fire' className='mintButtonImage' />
           </div>
@@ -251,9 +252,14 @@ return (
             <img src={airLMNTL} alt='Air' id='Air' className='mintButtonImage' />
           </div>
         </div>
-        <div className='mintButtonBottom' id='mintButtonBottom' onClick={handleMintClick}>
+        <div className='mintButtonBottom' id='mintButtonBottom' onClick={handleMintClick}  style={(current_scene === 8 || current_scene === 9) ? {display: ""} : {display: "none"}}>
           <img className='mintButtonBottomImage' id='mintButtonBottomImage' src={mintButtonBottomImage} alt='Mint LMNTL' />
           <div id="mintButtonBottomText" className='mintButtonBottomText'>{(user_address) ? 'Select LMNTL' : 'Connect Wallet'}</div>
+        </div>
+      </div>
+      <div className='sceneContainer'>
+        <div className='sceneFrame' onClick={handleSceneClick}>
+          <img src={scene_image} alt='' id='sceneImage' className='sceneImage' />
         </div>
       </div>
     </div>
