@@ -10,6 +10,8 @@ import NFZFILPage from './pages/nfzfil/NFZFIL';
 import ModulePage from './pages/module/ModulePage';
 import ModuleTestPage from './pages/moduletest/ModuleTestPage';
 import DevPage from './pages/dev/DevPage';
+import GamePage from './pages/game/GamePage';
+import PACbuidlrPage from './pages/pacbuidlr/PACbuidlrPage';
 
 import SmartContractContext from './scripts/SmartContractContext';
 
@@ -40,6 +42,8 @@ const App = () => {
                          <Route exact path="/module1" element={<ModulePage />} />
                          <Route exact path="/module0/test" element={<ModuleTestPage />} />
                          <Route exact path="/module1/test" element={<ModuleTestPage />} />
+                         <Route exact path="/game" element={<GamePage />} />
+                         <Route exact path="/pacbuidlr" element={<PACbuidlrPage />} />
                     </Routes>
                     <Footer />
                </BrowserRouter>

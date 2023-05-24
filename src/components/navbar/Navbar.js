@@ -32,7 +32,7 @@ import earth_2_icon from '../../image/LMNTLearth2-icon.png';
 //--------------------------------------------------------------------------------------------------
 //# Variables
 
-const connect_on_load = true;
+const connect_on_load = false;
 
 var mobile = false;
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
