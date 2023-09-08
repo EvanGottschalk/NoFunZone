@@ -182,6 +182,19 @@ var button_cursor_3 = cursor_image_Next;
 var button_cursor_4 = cursor_image_Next;
 
 
+var mobile_device = false;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  console.log("Mobile device detected");
+  mobile_device = true;
+};
+
+var vertical_display = false;
+if (window.screen.width < window.screen.height) {
+  console.log("Vertical screen detected");
+  vertical_display = true;
+  console.log("window.screen.width: ", window.screen.width);
+  console.log("window.screen.height: ", window.screen.height);
+};
 
 //AppStart
 const GameGUI = () => {
@@ -357,7 +370,11 @@ function handleMouseOver(event) {
 
 return (
   <div className='gameGUI'>
-    <div className='gameGUIContainer'>
+    <div className='gameGUIContainer'
+    style={(vertical_display) ? {
+      transform: "rotate(90deg)",
+      transformOrigin: "left right"} :
+      {}}>
       <div className='gameSceneContainer'>
         <img src={background_image} alt='' id='backgroundImage' className='backgroundImage' />
         <div className='gameSceneGUIContainer'>
