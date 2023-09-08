@@ -376,12 +376,21 @@ return (
       transformOrigin: "left right"} :
       {}}>
       <div className='gameSceneContainer'>
-        <img src={background_image} alt='' id='backgroundImage' className='backgroundImage' />
+        <img src={background_image} alt='' id='backgroundImage' className='backgroundImage' 
+        style={(vertical_display) ? {
+          width: "85vh",
+          margin: "-100% 0% 0% 0%",
+          padding: "100% 0% 100% 0%"} :
+          {}}/>
         <div className='gameSceneGUIContainer'>
           <div className='playerGameInterfaceContainer'>
             <img src={player_interface_image} alt='' id='playerGameInterfaceImage' className='playerGameInterfaceImage'
             style={{opacity:'0'}}/>
-            <div className='playerGameInterfaceCursorsContainer' id='playerGameInterfaceCursorsContainer'>
+            <div className='playerGameInterfaceCursorsContainer' id='playerGameInterfaceCursorsContainer'
+            style={(vertical_display) ? {
+              top: "7%",
+              left: "-15.5%"} :
+              {}}>
               <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_3} alt='' id='gameSceneCursorImage3' className='playerGameInterfaceCursorImage'
               style={{opacity:'0'}}/>
               <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_2} alt='' id='gameSceneCursorImage2' className='playerGameInterfaceCursorImage' 
