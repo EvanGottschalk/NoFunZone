@@ -68,7 +68,7 @@ function pause(time) {
 async function handleEvolveClick() {
   if (!user_evolved) {
     if (!user_address) {
-      const user_wallet_info = await connectWallet('goerli');
+      const user_wallet_info = await connectWallet('LMNTL', 'goerli');
       user_address = user_wallet_info['address'];
       await setAddress_Context(user_address);
       user_token_ID = user_wallet_info['token_ID'];

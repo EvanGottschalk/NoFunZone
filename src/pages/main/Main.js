@@ -7,9 +7,8 @@ import Animation from '../../components/animation/Animation'
 
 
 import Banner from '../../components/banner/Banner'
-import PageDescription from '../../components/pagedescription/PageDescription'
-import GetStarted from '../../components/getstarted/GetStarted'
-import EvolutionDescription from '../../components/evolutiondescription/EvolutionDescription'
+import About from '../../components/about/About'
+import AndreaIntro from '../../components/andreaintro/AndreaIntro'
 
 import './main.css'
 
@@ -17,9 +16,8 @@ const Main = () => {
   return (
     <div className='main'>
       <Banner />
-      <PageDescription />
-      <GetStarted />
-      <EvolutionDescription />
+      <About />
+      <AndreaIntro />
       <Animation />
     </div>
   )

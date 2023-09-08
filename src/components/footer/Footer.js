@@ -44,24 +44,25 @@ const Footer = () => {
             <div className='footerBox'>
               <div className='footerTextContainer'>
                 <div className='footerLinkColumn1'>
-                  <div className='footerColumnTitle'>NFZ</div>
+                  <div className='footerColumnTitle'>LearnTap</div>
                   <a className='footerColumnItem' href={window.location['href'] + ''}>Home</a>
-                  <a className='footerColumnItem' href={window.location['href'] + ''}>About Us</a>
-                  <a className='footerColumnItem' href={window.location['href'] + ''}>Your NFTs</a>
-                  <a className='footerColumnItem' href={window.location['href'] + ''}>Blog</a>
+                  <a className='footerColumnItem' href={window.location['href'] + ''}>About</a>
+                  <a className='footerColumnItem' href={window.location['href'] + ''}>Games</a>
+                  <a className='footerColumnItem' href={window.location['href'] + ''}>Videos</a>
+                  <a className='footerColumnItem' href={window.location['href'] + ''}>Our Team</a>
                 </div>
                 <div className='footerLinkColumn2'>
-                  <div className='footerColumnTitle'>Info</div>
+                  <div className='footerColumnTitle'>Legal</div>
                   <a className='footerColumnItem' href={window.location['href'] + ''}>Terms & Conditions</a>
                   <a className='footerColumnItem' href={window.location['href'] + ''}>Privacy Policy</a>
                   <a className='footerColumnItem' href={window.location['href'] + ''}>Cookies</a>
                 </div>
                 <div className='footerLinkColumn3'>
-                  <div className='footerColumnTitle'>Community</div>
+                  <div className='footerColumnTitle'>Help</div>
                   <a className='footerColumnItem' href={window.location['href'] + ''}>Help Center</a>
                   <a className='footerColumnItem' href={window.location['href'] + ''}>Forum</a>
-                  <a className='footerColumnItem' href={window.location['href'] + ''}>Webinars</a>
-                  <a className='footerColumnItem' href={window.location['href'] + ''}>Professionals</a>
+                  <a className='footerColumnItem' href={window.location['href'] + ''}>Discord</a>
+                  <a className='footerColumnItem' href={window.location['href'] + ''}>Contact Us</a>
                 </div>
               </div>
             </div>

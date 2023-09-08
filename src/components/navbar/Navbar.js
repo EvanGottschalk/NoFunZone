@@ -6,7 +6,7 @@ import SmartContractContext from '../../scripts/SmartContractContext';
 
 import logo from '../../image/logo.png'
 
-import walletButton from '../../image/button_4x1.png'
+import walletButton from '../../image/play-button.png'
 
 import './navbar.css'
 
@@ -59,7 +59,7 @@ let { user_token_ID, setTokenID_Context } = useContext(SmartContractContext);
 let { user_balance, setBalance_Context } = useContext(SmartContractContext);
 let { user_metadata, setMetadata_Context } = useContext(SmartContractContext);
 let { user_avatar_URI, setAvatarURI_Context } = useContext(SmartContractContext);
-
+let { contract_name, setContractName_Context } = useContext(SmartContractContext);
 
 
 
@@ -89,8 +89,11 @@ function pause(time) {
 
 
 async function handleConnectClick() {
+  console.log('Wallet connection is temporarily disabled. Code for wallet connection is present, but inactive.');
+  window.location.href = window.location['origin'] + '/game';
+  /*
   if (!user_address) {
-    const user_wallet_info = await connectWallet('goerli');
+    const user_wallet_info = await connectWallet('LMNTL', 'goerli');
     user_address = user_wallet_info['address'];
     await setAddress_Context(user_address);
     user_token_ID = user_wallet_info['token_ID'];
@@ -101,8 +104,9 @@ async function handleConnectClick() {
     await setMetadata_Context(user_metadata);
     user_avatar_URI = user_wallet_info['avatar_URI'];
     await setAvatarURI_Context(user_avatar_URI);
-    
-  };
+    contract_name = user_wallet_info['contract_name'];
+    await setContractName_Context(contract_name);
+  };*/
 };
 
 
@@ -179,30 +183,30 @@ return (
         <div className='navbarButton' onClick={handleMint}>
           <a href={window.location['origin'] + '/module0'}>
             <div className='navbarButton1'>
-              Lessons
+              
             </div>
           </a>
         </div>
         <div className='navbarButton' onClick={handleAbout}>
           <a href={window.location['origin'] + '/avatar'}>
             <div className='navbarButton2'>
-              Your NFTs
+              
             </div>
           </a>
         </div>
         <div className='navbarButton' onClick={handleRoadmap}>
           <div className='navbarButton3'>
-            About Us
+            
           </div>
         </div>
         <div className='navbarButton' onClick={handleTeam}>
           <div className='navbarButton4'>
-            Blog
+            
           </div>
         </div>
         <div className='navbarButton' onClick={handleFaq}>
           <div className='navbarButton5'>
-            Contact Us
+            
           </div>
         </div>
       </div>
@@ -217,7 +221,7 @@ return (
                 borderWidth: "5px 5px 5px 5px",
                 borderRadius: "10px"} :
                 {}} />
-          <div id="navbarWalletButtonText" className='navbarWalletButtonText'>{(user_avatar_URI) ? '' : (user_address) ? 'Wallet Connected' : 'Connect Wallet'}</div>
+          <div id="navbarWalletButtonText" className='navbarWalletButtonText'>{(user_avatar_URI) ? '' : (user_address) ? '' : ''}</div>
         </div>
       </div>
     </div>

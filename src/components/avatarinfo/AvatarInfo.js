@@ -11,7 +11,7 @@ import background from '../../image/background.png'
 import './avatarinfo.css'
 
 import connectWallet from '../../scripts/SmartContractOperator';
-import {getOpenSeaLink, getUserStats} from '../../scripts/SmartContractOperator';
+import {getOpenSeaLink, getUserStats, setUserTokenID, setUserMetadata, setUserAvatarURI} from '../../scripts/SmartContractOperator';
 
 
 
@@ -22,7 +22,7 @@ import {getOpenSeaLink, getUserStats} from '../../scripts/SmartContractOperator'
 //--------------------------------------------------------------------------------------------------
 //# Variables
 
-const connect_on_load = true;
+const connect_on_load = false;
 
 let opensea_link = '#';
 
@@ -49,10 +49,12 @@ var user_stats_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const AvatarInfo = () => {
 
 let { user_address, setAddress_Context } = useContext(SmartContractContext);
-let { user_token_ID, setTokenID_Context } = useContext(SmartContractContext);
 let { user_balance, setBalance_Context } = useContext(SmartContractContext);
+let { network_name, setNetwork_Context } = useContext(SmartContractContext);
+let { user_token_ID, setTokenID_Context } = useContext(SmartContractContext);
 let { user_metadata, setMetadata_Context } = useContext(SmartContractContext);
 let { user_avatar_URI, setAvatarURI_Context } = useContext(SmartContractContext);
+let { contract_name, setContractName_Context } = useContext(SmartContractContext);
 
 
 
@@ -110,16 +112,21 @@ async function setIPFSimageURL() {
 
 async function handleConnectClick() {
   if (!user_address) {
-    const user_wallet_info = await connectWallet('goerli');
+    //network_name = 'goerli';
+    const user_wallet_info = await connectWallet(network_name);
     user_address = user_wallet_info['address'];
     await setAddress_Context(user_address);
-    user_token_ID = user_wallet_info['token_ID'];
-    await setTokenID_Context(user_token_ID);
     user_balance = user_wallet_info['balance'];
     await setBalance_Context(user_balance);
-    user_metadata = user_wallet_info['metadata'];
+    network_name = user_wallet_info['network_name'];
+    await setNetwork_Context(network_name);
+    contract_name = 'LMNTL';
+    await setContractName_Context(contract_name);
+    user_token_ID = await setUserTokenID(contract_name, user_address);
+    await setTokenID_Context(user_token_ID);
+    user_metadata = await setUserMetadata(contract_name, user_address);
     await setMetadata_Context(user_metadata);
-    user_avatar_URI = user_wallet_info['avatar_URI'];
+    user_avatar_URI = await setUserAvatarURI(user_metadata);
     await setAvatarURI_Context(user_avatar_URI);
   };
   if (user_token_ID) {
@@ -140,7 +147,7 @@ async function updateConnectButton() {
     opensea_link_element.style.boxShadow = '0 0 15px 5px #8cbaff';
     opensea_link_element.style.backgroundColor = 'var(--color-opensea)';
     opensea_link_element.textContent = 'VIEW ON OPENSEA';
-    opensea_link = await getOpenSeaLink();
+    opensea_link = await getOpenSeaLink('LMNTL');
     opensea_link_element.href = opensea_link;
     opensea_link_element.target = '_blank';
   } else if (user_address) {

@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  margin: 50px 0px 0px 0%;
-  padding: 30px 0px 0px 0%;
+  margin: 0px 0px 0% 0%;
+  padding: 7% 0px 2% 0%;
   width: 100%;
   background-color: var(--color-black);
 }
@@ -14,16 +14,16 @@
   display: flex;
   justify-content: left;
   flex-direction: column;
-  margin: 0px 0px 0px 5%;
+  margin: -3% 0% 0px 5%;
 }
 
 .footerBox {
   width: 100%;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0% 0px;
 }
 
 .footerSocialsContainer {
-  margin: 0px 0px 0px 10%;
+  margin: 0px 0px 5% 13%;
   width: 100%;
   display: flex;
   gap: 30px;
@@ -41,7 +41,7 @@
 .footerTextContainer {
   width: 100%;
   padding: 5px 0px 5px 0px;
-  margin: 0px 0px 40% 0px;
+  margin: 0px 0px 0% 0px;
   display: flex;
   align-items: top;
   justify-content: top;

@@ -1,25 +1,53 @@
-/*1st background1.png*/
-/*.background1 {
-  object-fit: fill;
-  width: 203%;
-  display: flex;
+.bannerContainer {
+  object-fit: cover;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: -50px 0px -3900px 0px;
-}*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0% 0% 1% 0%;
+  padding: 0% 0% 0% 0%;
+  overflow: hidden;
+}
 
 .banner {
-  width: 100%;
   object-fit: cover;
-  object-position: top;
+  max-height: 60vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   display: flex;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  border-radius: 0px;
 }
+
+.playButtonContainer {
+  max-height: 50px;
+  position: absolute;
+  margin: 7% 25% 0% 0%;
+}
+
+.playButton {
+  max-height: 7vh;
+  cursor: pointer;
+}
+
+
+
+.playButton:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.playButton:active {
+  -webkit-transform: scale(1.08);
+  -moz-transform: scale(1.08);
+  -o-transform: scale(1.08);
+  transform: scale(1.08);
+}
+
 
 
 @media only screen and (max-width: 1400px) {

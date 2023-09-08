@@ -5,7 +5,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import SmartContractContext from '../../scripts/SmartContractContext';
 
 import connectWallet from '../../scripts/SmartContractOperator';
-import {mintNFT, getImageURL} from '../../scripts/SmartContractOperator';
+import {mintNFT, getMetadataURI} from '../../scripts/SmartContractOperator';
 
 import fireLMNTL from '../../image/LMNTLfire1.png'
 import waterLMNTL from '../../image/LMNTLwater1.png'
@@ -84,7 +84,7 @@ let { user_token_ID, setTokenID_Context } = useContext(SmartContractContext);
 let { user_balance, setBalance_Context } = useContext(SmartContractContext);
 let { user_metadata, setMetadata_Context } = useContext(SmartContractContext);
 let { user_avatar_URI, setAvatarURI_Context } = useContext(SmartContractContext);
-
+let { contract_name, setContractName_Context } = useContext(SmartContractContext);
 
 
 
@@ -130,7 +130,7 @@ function handleLMNTLClick(event) {
 async function handleMintClick(event) {
   if (!user_minted_NFT) {
     if (!user_address) {
-      const user_wallet_info = await connectWallet('goerli');
+      const user_wallet_info = await connectWallet('LMNTL', 'goerli');
       user_address = user_wallet_info['address'];
       await setAddress_Context(user_address);
       user_token_ID = user_wallet_info['token_ID'];
@@ -141,10 +141,12 @@ async function handleMintClick(event) {
       await setMetadata_Context(user_metadata);
       user_avatar_URI = user_wallet_info['avatar_URI'];
       await setAvatarURI_Context(user_avatar_URI);
+      contract_name = user_wallet_info['contract_name'];
+    await setContractName_Context(contract_name);
     } else if (element_selected) {
       const mint_params = await generateMintParams(element_selected);
       const mint_button_text = document.getElementById("mintButtonBottomText");
-      user_token_ID = await mintNFT(mint_button_text, mint_params);
+      user_token_ID = await mintNFT('LMNTL', mint_button_text, mint_params);
       await setTokenID_Context(user_token_ID);
       toggleMinted( !user_minted_NFT );
       mint_button_text.textContent = "View LMNTL";
@@ -162,7 +164,7 @@ async function generateMintParams(element_selected) {
   const element_ID = elements_dict[element_selected];
   mint_params.push(element_ID);
 
-  const mint_image_URL = await getImageURL(element_ID);
+  const mint_image_URL = await getMetadataURI(element_ID);
   mint_params.push(mint_image_URL);
 
   console.log('Mint Params: ', mint_params);
