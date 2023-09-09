@@ -1,71 +1,64 @@
 .gameGUI {
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0% 0% 0% 0%;
-  background-color: #000000;
 }
 
 .gameGUIContainer {
-  background-color: #000000;
-  margin-bottom: 8%;
+  margin-bottom: 8%; 
+}
+
+.gameSceneContainer {
+  margin: 0% 0% 0% 16%;
+  padding: 0% 0% 0% 0%;
+  width: 68%;
+  position: relative;
 }
 
 
 .backgroundImage {
   display: block;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 67.5%;
+  object-fit: cover;
   z-index: 0;
+  width: 100%;
 }
 
-
-.gameSceneGUIContainer {
-  margin: 0% 0% 0% 0%;
-  
-}
 
 .playerGameInterfaceContainer {
-  margin: 0% 0% 0% 0%;
   position: absolute;
-  top: 47.5%;
-  left: 17.5%;
+  top: 49%;
+  left: 1.8%;
 }
 
 .playerGameInterfaceImage {
-  margin: 0% 0% 0% 0%;
   height: 33vh;
-  
 }
 
 .playerGameInterfaceCursorsContainer {
-  margin: 0% 0% 0% 0%;
   position: absolute;
-  top: 16.5%;
+  top: 16.25%;
   left: 7%;
 }
 
 .playerGameInterfaceCursorImage {
-  margin: 0% 0% 2.8% 0%;
+  margin: 0% 0% 2.5% 0%;
   height: 5.8vh;
   cursor: pointer;
 }
 
 .walletCursorContainer {
   margin: 0% 0% 0% 0%;
+  position: absolute;
+  top: 64.3%;
+  left: 65.3%;
 }
 
 .expAnimation {
-  padding: 0% 0% 11% 0%;
-  margin: -23.3% 0% 0% 60.8%;
-  height: 220px;
+  margin: 0% 0% 0% 0%;
+  position: absolute;
+  top: 12%;
+  left: 53.3%;
+  height: 250px;
 }
 
 

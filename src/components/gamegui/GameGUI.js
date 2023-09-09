@@ -382,10 +382,12 @@ return (
           margin: "-100% 0% 0% 0%",
           padding: "100% 0% 100% 0%"} :
           {}}/>
+        <img src='' alt='' id='expAnimation' className='expAnimation'
+          style={{opacity:'1'}}/>
         <div className='gameSceneGUIContainer'>
           <div className='playerGameInterfaceContainer'>
             <img src={player_interface_image} alt='' id='playerGameInterfaceImage' className='playerGameInterfaceImage'
-            style={{opacity:'0'}}/>
+            style={{opacity:'1'}}/>
             <div className='playerGameInterfaceCursorsContainer' id='playerGameInterfaceCursorsContainer'
             style={(vertical_display) ? {
               top: "7%",
@@ -399,16 +401,13 @@ return (
               style={{opacity:'1'}}/>
             </div>
           </div>
+          <div className='walletCursorContainer' id='gameSceneCursorContainer4'>
+            <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_4} alt='' id='gameSceneCursorImage4' className='playerGameInterfaceCursorImage'
+            style={{opacity:'0'}}/>
+          </div>
         </div>  
       </div>
-      <div className='expAnimationContainer' id='expAnimationContainer'>
-        <img src='' alt='' id='expAnimation' className='expAnimation'
-        style={{opacity:'1'}}/>
-      </div>
-      <div className='walletCursorContainer' id='gameSceneCursorContainer4'>
-        <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_4} alt='' id='gameSceneCursorImage4' className='gameSceneCursorImage'
-        style={{opacity:'0'}}/>
-      </div>
+      
     </div>
   </div>
   
