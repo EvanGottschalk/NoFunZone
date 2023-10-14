@@ -368,6 +368,10 @@ async function handleFieldChange(event) {
         number_of_inputs = 0;
       } else if (function_name === '__setMintPrice') {
         number_of_inputs = 1;
+      } else if (function_name === 'getMaxSupply') {
+        number_of_inputs = 0;
+      } else if (function_name === '__setMaxSupply') {
+        number_of_inputs = 1;
       } else if (function_name === 'tokenURI') {
         number_of_inputs = 1;
       } else if (function_name === '__setTokenURI') {
@@ -611,12 +615,14 @@ return (
         <div className='nofunminterInputContainer' id='nofunminterInputContainer'>
           <span className='nofunminterLabel' id='nofunminterLabel_RunFunction'>Run Function: </span>                  
           <select className='nofunminterSelectList' id='functionSelect' onChange={handleFieldChange}>
-            <option value="mintPublic">mintPublic</option>
+            <option value="mint">mint</option>
             <option value="__mintFree">__mintFree</option>
             <option value="contractURI">contractURI</option>
             <option value="__setContractURI">__setContractURI</option>
             <option value="getMintPrice">getMintPrice</option>
             <option value="__setMintPrice">__setMintPrice</option>
+            <option value="getMaxSupply">getMaxSupply</option>
+            <option value="__setMaxSupply">__setMaxSupply</option>
             <option value="tokenURI">tokenURI</option>
             <option value="__setTokenURI">__setTokenURI</option>
             <option value="getPrimaryTokenID">getPrimaryTokenID</option>

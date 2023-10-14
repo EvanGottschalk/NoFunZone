@@ -47,17 +47,22 @@
 }
 
 .walletCursorContainer {
-  margin: 0% 0% 0% 0%;
   position: absolute;
-  top: 64.3%;
-  left: 65.3%;
+  top: 70%;
+  left: 72.75%;
+}
+
+.claimCursorContainer {
+  position: absolute;
+  top: 68%;
+  left: 36%;
 }
 
 .expAnimation {
   margin: 0% 0% 0% 0%;
   position: absolute;
-  top: 12%;
-  left: 53.3%;
+  top: 10.5%;
+  left: 55.3%;
   height: 250px;
 }
 

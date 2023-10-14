@@ -44,14 +44,1096 @@ const default_contract_name = 'Signatures';
 
 let contract_dict = {'default': {},
                      'Signatures': {'Address': {'mainnet': '',
-                                               'goerli': '0x355DfD19FEB09F0A89d2aeac57DaD181cB81eBF9'},
-                                   'ABI': `[]`,
-                                   'Functions': {'mintPublic': {'number_of_inputs': 1},
+                                               'goerli': '0x627eAb9D36395dDC49BE3424c06D2114Eda7ae12'},
+                                   'ABI': `[{
+                                    "inputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "constructor"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "owner",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "approved",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": true,
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "Approval",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "owner",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "operator",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "bool",
+                                        "name": "approved",
+                                        "type": "bool"
+                                      }
+                                    ],
+                                    "name": "ApprovalForAll",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "_fromTokenId",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "_toTokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "BatchMetadataUpdate",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "_tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "MetadataUpdate",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "previousOwner",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "newOwner",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "OwnershipTransferred",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "address",
+                                        "name": "user_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "PrimaryTokenAssigned",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "task_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "string",
+                                        "name": "task_tags",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "bytes32",
+                                        "name": "task_hash",
+                                        "type": "bytes32"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "task_timestamp",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "address",
+                                        "name": "completer_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "TaskCompleted",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "task_count",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint256",
+                                        "name": "task_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "string",
+                                        "name": "task_tags",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "string",
+                                        "name": "task_metadata_URI",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "bytes32",
+                                        "name": "task_hash",
+                                        "type": "bytes32"
+                                      }
+                                    ],
+                                    "name": "TaskCreated",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "from",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": true,
+                                        "internalType": "address",
+                                        "name": "to",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": true,
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "Transfer",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "anonymous": false,
+                                    "inputs": [
+                                      {
+                                        "indexed": false,
+                                        "internalType": "address",
+                                        "name": "user_address",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "indexed": false,
+                                        "internalType": "uint16",
+                                        "name": "whitelist_tier",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "name": "WhitelistAssigned",
+                                    "type": "event"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "task_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "string",
+                                        "name": "task_tags",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "internalType": "string",
+                                        "name": "task_metadata_URI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "name": "__createTask",
+                                    "outputs": [
+                                      {
+                                        "internalType": "bytes32",
+                                        "name": "task_hash",
+                                        "type": "bytes32"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "token_URI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "name": "__mintFree",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "new_collectionInfoURI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "name": "__setContractURI",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "old_collectionInfoURI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "new_max_supply",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "__setMaxSupply",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "old_max_supply",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "new_price",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "whitelist_tier",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "name": "__setMintPrice",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "old_price",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "address",
+                                        "name": "user_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "__setPrimaryTokenID",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "string",
+                                        "name": "token_URI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "name": "__setTokenURI",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "old_token_URI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "_maxSupply",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "to",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "approve",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "owner",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "balanceOf",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "characters",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "metadata_URI",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tasks_completed",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "collectionInfoURI",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "task_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "string",
+                                        "name": "task_tags",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "name": "completeTask",
+                                    "outputs": [
+                                      {
+                                        "internalType": "bytes32",
+                                        "name": "task_hash",
+                                        "type": "bytes32"
+                                      }
+                                    ],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "contractURI",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "getApproved",
+                                    "outputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "getMaxSupply",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "whitelist_tier",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "name": "getMintPrice",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "index",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "getPrimaryHolderByIndex",
+                                    "outputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "getPrimaryHolderCount",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "user_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "getPrimaryTokenID",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "user_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "getPrimaryTokenURI",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "_tokenURI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "user_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "getWhitelistTier",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "holderPrimaryTokens",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "owner",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "address",
+                                        "name": "operator",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "isApprovedForAll",
+                                    "outputs": [
+                                      {
+                                        "internalType": "bool",
+                                        "name": "",
+                                        "type": "bool"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "token_URI",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "name": "mint",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "payable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "name": "mint_limits",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "name": "mint_prices",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "name",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "owner",
+                                    "outputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "ownerOf",
+                                    "outputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "primaryTokenHolderIndex",
+                                    "outputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "renounceOwnership",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "from",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "address",
+                                        "name": "to",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "safeTransferFrom",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "from",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "address",
+                                        "name": "to",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "bytes",
+                                        "name": "data",
+                                        "type": "bytes"
+                                      }
+                                    ],
+                                    "name": "safeTransferFrom",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "operator",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "bool",
+                                        "name": "approved",
+                                        "type": "bool"
+                                      }
+                                    ],
+                                    "name": "setApprovalForAll",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "token_ID",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "setPrimaryTokenID",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "bytes4",
+                                        "name": "interfaceId",
+                                        "type": "bytes4"
+                                      }
+                                    ],
+                                    "name": "supportsInterface",
+                                    "outputs": [
+                                      {
+                                        "internalType": "bool",
+                                        "name": "",
+                                        "type": "bool"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [],
+                                    "name": "symbol",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "bytes32",
+                                        "name": "",
+                                        "type": "bytes32"
+                                      }
+                                    ],
+                                    "name": "taskHashArray",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "tasks",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "metadata_URI",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "task_ID",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "string",
+                                        "name": "task_tags",
+                                        "type": "string"
+                                      },
+                                      {
+                                        "internalType": "bytes32",
+                                        "name": "task_hash",
+                                        "type": "bytes32"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "task_creation_timestamp",
+                                        "type": "uint256"
+                                      },
+                                      {
+                                        "internalType": "address",
+                                        "name": "task_creator_address",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "tokenURI",
+                                    "outputs": [
+                                      {
+                                        "internalType": "string",
+                                        "name": "",
+                                        "type": "string"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "from",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "address",
+                                        "name": "to",
+                                        "type": "address"
+                                      },
+                                      {
+                                        "internalType": "uint256",
+                                        "name": "tokenId",
+                                        "type": "uint256"
+                                      }
+                                    ],
+                                    "name": "transferFrom",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "newOwner",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "transferOwnership",
+                                    "outputs": [],
+                                    "stateMutability": "nonpayable",
+                                    "type": "function"
+                                  },
+                                  {
+                                    "inputs": [
+                                      {
+                                        "internalType": "address",
+                                        "name": "",
+                                        "type": "address"
+                                      }
+                                    ],
+                                    "name": "whitelist_tiers",
+                                    "outputs": [
+                                      {
+                                        "internalType": "uint16",
+                                        "name": "",
+                                        "type": "uint16"
+                                      }
+                                    ],
+                                    "stateMutability": "view",
+                                    "type": "function"
+                                  }]`,
+                                   'Functions': {'mint': {'number_of_inputs': 1},
                                                  '__mintFree': {'number_of_inputs': 1},
                                                  'contractURI': {'number_of_inputs': 0},
                                                  '__setContractURI': {'number_of_inputs': 1},
                                                  'getMintPrice': {'number_of_inputs': 0},
                                                  '__setMintPrice': {'number_of_inputs': 1},
+                                                 'getMaxSupply': {'number_of_inputs': 0},
+                                                 '__setMaxSupply': {'number_of_inputs': 1},
                                                  'tokenURI': {'number_of_inputs': 1},
                                                  '__setTokenURI': {'number_of_inputs': 2},
                                                  'lockToken': {'number_of_inputs': 2},
@@ -2041,6 +3123,99 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "anonymous": false,
                           "inputs": [
                             {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "token_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "PrimaryTokenAssigned",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_timestamp",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "address",
+                              "name": "completer_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "TaskCompleted",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_count",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "string",
+                              "name": "task_metadata_URI",
+                              "type": "string"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "name": "TaskCreated",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
                               "indexed": true,
                               "internalType": "address",
                               "name": "from",
@@ -2061,6 +3236,54 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           ],
                           "name": "Transfer",
                           "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
+                              "indexed": false,
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "uint16",
+                              "name": "whitelist_tier",
+                              "type": "uint16"
+                            }
+                          ],
+                          "name": "WhitelistAssigned",
+                          "type": "event"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_metadata_URI",
+                              "type": "string"
+                            }
+                          ],
+                          "name": "__createTask",
+                          "outputs": [
+                            {
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
                         },
                         {
                           "inputs": [
@@ -2106,6 +3329,11 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "internalType": "uint256",
                               "name": "new_price",
                               "type": "uint256"
+                            },
+                            {
+                              "internalType": "uint16",
+                              "name": "whitelist_tier",
+                              "type": "uint16"
                             }
                           ],
                           "name": "__setMintPrice",
@@ -2116,6 +3344,24 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "type": "uint256"
                             }
                           ],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "token_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "__setPrimaryTokenID",
+                          "outputs": [],
                           "stateMutability": "nonpayable",
                           "type": "function"
                         },
@@ -2145,7 +3391,7 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         },
                         {
                           "inputs": [],
-                          "name": "_mintPrice",
+                          "name": "_maxSupply",
                           "outputs": [
                             {
                               "internalType": "uint256",
@@ -2194,6 +3440,30 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "type": "function"
                         },
                         {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "",
+                              "type": "uint256"
+                            }
+                          ],
+                          "name": "characters",
+                          "outputs": [
+                            {
+                              "internalType": "string",
+                              "name": "metadata_URI",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "uint256",
+                              "name": "tasks_completed",
+                              "type": "uint256"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
                           "inputs": [],
                           "name": "collectionInfoURI",
                           "outputs": [
@@ -2207,6 +3477,30 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "type": "function"
                         },
                         {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            }
+                          ],
+                          "name": "completeTask",
+                          "outputs": [
+                            {
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
                           "inputs": [],
                           "name": "contractURI",
                           "outputs": [
@@ -2214,19 +3508,6 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "internalType": "string",
                               "name": "",
                               "type": "string"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "getAllPrimaryHolders",
-                          "outputs": [
-                            {
-                              "internalType": "address[]",
-                              "name": "",
-                              "type": "address[]"
                             }
                           ],
                           "stateMutability": "view",
@@ -2252,7 +3533,13 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "type": "function"
                         },
                         {
-                          "inputs": [],
+                          "inputs": [
+                            {
+                              "internalType": "uint16",
+                              "name": "whitelist_tier",
+                              "type": "uint16"
+                            }
+                          ],
                           "name": "getMintPrice",
                           "outputs": [
                             {
@@ -2300,7 +3587,7 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "inputs": [
                             {
                               "internalType": "address",
-                              "name": "_userAddress",
+                              "name": "user_address",
                               "type": "address"
                             }
                           ],
@@ -2319,7 +3606,7 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "inputs": [
                             {
                               "internalType": "address",
-                              "name": "_userAddress",
+                              "name": "user_address",
                               "type": "address"
                             }
                           ],
@@ -2329,6 +3616,25 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "internalType": "string",
                               "name": "_tokenURI",
                               "type": "string"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "getWhitelistTier",
+                          "outputs": [
+                            {
+                              "internalType": "uint16",
+                              "name": "",
+                              "type": "uint16"
                             }
                           ],
                           "stateMutability": "view",
@@ -2380,12 +3686,31 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         {
                           "inputs": [
                             {
+                              "internalType": "string",
+                              "name": "token_URI",
+                              "type": "string"
+                            }
+                          ],
+                          "name": "mint",
+                          "outputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "token_ID",
+                              "type": "uint256"
+                            }
+                          ],
+                          "stateMutability": "payable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
                               "internalType": "uint16",
                               "name": "",
                               "type": "uint16"
                             }
                           ],
-                          "name": "mintLimits",
+                          "name": "mint_limits",
                           "outputs": [
                             {
                               "internalType": "uint16",
@@ -2399,20 +3724,20 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         {
                           "inputs": [
                             {
-                              "internalType": "string",
-                              "name": "token_URI",
-                              "type": "string"
+                              "internalType": "uint16",
+                              "name": "",
+                              "type": "uint16"
                             }
                           ],
-                          "name": "mintPublic",
+                          "name": "mint_prices",
                           "outputs": [
                             {
                               "internalType": "uint256",
-                              "name": "token_ID",
+                              "name": "",
                               "type": "uint256"
                             }
                           ],
-                          "stateMutability": "payable",
+                          "stateMutability": "view",
                           "type": "function"
                         },
                         {
@@ -2603,6 +3928,69 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         {
                           "inputs": [
                             {
+                              "internalType": "bytes32",
+                              "name": "",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "name": "taskHashArray",
+                          "outputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "",
+                              "type": "uint256"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "",
+                              "type": "uint256"
+                            }
+                          ],
+                          "name": "tasks",
+                          "outputs": [
+                            {
+                              "internalType": "string",
+                              "name": "metadata_URI",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            },
+                            {
+                              "internalType": "uint256",
+                              "name": "task_creation_timestamp",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "address",
+                              "name": "task_creator_address",
+                              "type": "address"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
                               "internalType": "uint256",
                               "name": "tokenId",
                               "type": "uint256"
@@ -2653,6 +4041,25 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "name": "transferOwnership",
                           "outputs": [],
                           "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "address",
+                              "name": "",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "whitelist_tiers",
+                          "outputs": [
+                            {
+                              "internalType": "uint16",
+                              "name": "",
+                              "type": "uint16"
+                            }
+                          ],
+                          "stateMutability": "view",
                           "type": "function"
                         }
                       ]`},
@@ -2767,6 +4174,99 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "anonymous": false,
                           "inputs": [
                             {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "token_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "PrimaryTokenAssigned",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_timestamp",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "address",
+                              "name": "completer_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "TaskCompleted",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_count",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "string",
+                              "name": "task_metadata_URI",
+                              "type": "string"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "name": "TaskCreated",
+                          "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
                               "indexed": true,
                               "internalType": "address",
                               "name": "from",
@@ -2787,6 +4287,54 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           ],
                           "name": "Transfer",
                           "type": "event"
+                        },
+                        {
+                          "anonymous": false,
+                          "inputs": [
+                            {
+                              "indexed": false,
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            },
+                            {
+                              "indexed": false,
+                              "internalType": "uint16",
+                              "name": "whitelist_tier",
+                              "type": "uint16"
+                            }
+                          ],
+                          "name": "WhitelistAssigned",
+                          "type": "event"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_metadata_URI",
+                              "type": "string"
+                            }
+                          ],
+                          "name": "__createTask",
+                          "outputs": [
+                            {
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
                         },
                         {
                           "inputs": [
@@ -2832,6 +4380,11 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "internalType": "uint256",
                               "name": "new_price",
                               "type": "uint256"
+                            },
+                            {
+                              "internalType": "uint16",
+                              "name": "whitelist_tier",
+                              "type": "uint16"
                             }
                           ],
                           "name": "__setMintPrice",
@@ -2842,6 +4395,24 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "type": "uint256"
                             }
                           ],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "token_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "__setPrimaryTokenID",
+                          "outputs": [],
                           "stateMutability": "nonpayable",
                           "type": "function"
                         },
@@ -2871,7 +4442,7 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         },
                         {
                           "inputs": [],
-                          "name": "_mintPrice",
+                          "name": "_maxSupply",
                           "outputs": [
                             {
                               "internalType": "uint256",
@@ -2920,6 +4491,30 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "type": "function"
                         },
                         {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "",
+                              "type": "uint256"
+                            }
+                          ],
+                          "name": "characters",
+                          "outputs": [
+                            {
+                              "internalType": "string",
+                              "name": "metadata_URI",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "uint256",
+                              "name": "tasks_completed",
+                              "type": "uint256"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
                           "inputs": [],
                           "name": "collectionInfoURI",
                           "outputs": [
@@ -2933,6 +4528,30 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "type": "function"
                         },
                         {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            }
+                          ],
+                          "name": "completeTask",
+                          "outputs": [
+                            {
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
                           "inputs": [],
                           "name": "contractURI",
                           "outputs": [
@@ -2940,19 +4559,6 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "internalType": "string",
                               "name": "",
                               "type": "string"
-                            }
-                          ],
-                          "stateMutability": "view",
-                          "type": "function"
-                        },
-                        {
-                          "inputs": [],
-                          "name": "getAllPrimaryHolders",
-                          "outputs": [
-                            {
-                              "internalType": "address[]",
-                              "name": "",
-                              "type": "address[]"
                             }
                           ],
                           "stateMutability": "view",
@@ -2978,7 +4584,13 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "type": "function"
                         },
                         {
-                          "inputs": [],
+                          "inputs": [
+                            {
+                              "internalType": "uint16",
+                              "name": "whitelist_tier",
+                              "type": "uint16"
+                            }
+                          ],
                           "name": "getMintPrice",
                           "outputs": [
                             {
@@ -3026,7 +4638,7 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "inputs": [
                             {
                               "internalType": "address",
-                              "name": "_userAddress",
+                              "name": "user_address",
                               "type": "address"
                             }
                           ],
@@ -3045,7 +4657,7 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "inputs": [
                             {
                               "internalType": "address",
-                              "name": "_userAddress",
+                              "name": "user_address",
                               "type": "address"
                             }
                           ],
@@ -3055,6 +4667,25 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                               "internalType": "string",
                               "name": "_tokenURI",
                               "type": "string"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "address",
+                              "name": "user_address",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "getWhitelistTier",
+                          "outputs": [
+                            {
+                              "internalType": "uint16",
+                              "name": "",
+                              "type": "uint16"
                             }
                           ],
                           "stateMutability": "view",
@@ -3106,12 +4737,31 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         {
                           "inputs": [
                             {
+                              "internalType": "string",
+                              "name": "token_URI",
+                              "type": "string"
+                            }
+                          ],
+                          "name": "mint",
+                          "outputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "token_ID",
+                              "type": "uint256"
+                            }
+                          ],
+                          "stateMutability": "payable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
                               "internalType": "uint16",
                               "name": "",
                               "type": "uint16"
                             }
                           ],
-                          "name": "mintLimits",
+                          "name": "mint_limits",
                           "outputs": [
                             {
                               "internalType": "uint16",
@@ -3125,20 +4775,20 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         {
                           "inputs": [
                             {
-                              "internalType": "string",
-                              "name": "token_URI",
-                              "type": "string"
+                              "internalType": "uint16",
+                              "name": "",
+                              "type": "uint16"
                             }
                           ],
-                          "name": "mintPublic",
+                          "name": "mint_prices",
                           "outputs": [
                             {
                               "internalType": "uint256",
-                              "name": "token_ID",
+                              "name": "",
                               "type": "uint256"
                             }
                           ],
-                          "stateMutability": "payable",
+                          "stateMutability": "view",
                           "type": "function"
                         },
                         {
@@ -3329,6 +4979,69 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                         {
                           "inputs": [
                             {
+                              "internalType": "bytes32",
+                              "name": "",
+                              "type": "bytes32"
+                            }
+                          ],
+                          "name": "taskHashArray",
+                          "outputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "",
+                              "type": "uint256"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "uint256",
+                              "name": "",
+                              "type": "uint256"
+                            }
+                          ],
+                          "name": "tasks",
+                          "outputs": [
+                            {
+                              "internalType": "string",
+                              "name": "metadata_URI",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "uint256",
+                              "name": "task_ID",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "string",
+                              "name": "task_tags",
+                              "type": "string"
+                            },
+                            {
+                              "internalType": "bytes32",
+                              "name": "task_hash",
+                              "type": "bytes32"
+                            },
+                            {
+                              "internalType": "uint256",
+                              "name": "task_creation_timestamp",
+                              "type": "uint256"
+                            },
+                            {
+                              "internalType": "address",
+                              "name": "task_creator_address",
+                              "type": "address"
+                            }
+                          ],
+                          "stateMutability": "view",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
                               "internalType": "uint256",
                               "name": "tokenId",
                               "type": "uint256"
@@ -3379,6 +5092,25 @@ const json_ABI_list = {'LMNTL': {'mainnet': `[]`,
                           "name": "transferOwnership",
                           "outputs": [],
                           "stateMutability": "nonpayable",
+                          "type": "function"
+                        },
+                        {
+                          "inputs": [
+                            {
+                              "internalType": "address",
+                              "name": "",
+                              "type": "address"
+                            }
+                          ],
+                          "name": "whitelist_tiers",
+                          "outputs": [
+                            {
+                              "internalType": "uint16",
+                              "name": "",
+                              "type": "uint16"
+                            }
+                          ],
+                          "stateMutability": "view",
                           "type": "function"
                         }
                       ]`}};
@@ -3647,8 +5379,8 @@ export async function getOpenSeaLink(contract_name_input, token_ID_input) {
   };
 
   var contract_address;
-  if (contract_address_dict[contract_name_input]) {
-    contract_address = contract_address_dict[contract_name_input][network_name];
+  if (contract_dict[contract_name_input]) {
+    contract_address = contract_dict[contract_name_input]['Address'][network_name];
   } else {
     contract_address = contract_name_input;
   };
@@ -3791,8 +5523,8 @@ export async function runContractFunction(contract_name_input, function_name, fu
   // Assigns the preset contract address if it exists
   // If not, `contract_name_input` is assumed to be the address itself
   var contract_address;
-  if (contract_address_dict[contract_name_input]) {
-    contract_address = contract_address_dict[contract_name_input][network_name];
+  if (contract_dict[contract_name_input]) {
+    contract_address = contract_dict[contract_name_input]['Address'][network_name];
     contract_name = contract_name_input;
   } else {
     contract_address = contract_name_input;
@@ -3804,14 +5536,14 @@ export async function runContractFunction(contract_name_input, function_name, fu
   if (!signer) {
     signer = await setSigner();
   };
-  const iface = new Interface(json_ABI_list[contract_name_input][network_name]);
+  const iface = new Interface(contract_dict[contract_name_input]['ABI']);
   iface.format(FormatTypes.full);
   const contract = new ethers.Contract(contract_address, iface, signer);
   var transaction_info;
   
 
-  if (function_name === 'mintPublic') {
-    transaction_info = await contract.mintPublic(function_params[0], { value: ethers.utils.parseUnits(".000000000000005", "ether") });
+  if (function_name === 'mint') {
+    transaction_info = await contract.mint(function_params[0], { value: ethers.utils.parseUnits(".000000000000005", "ether") });
     user_minted_NFT = true;
   } else if (function_name === '__mintFree') {
     transaction_info = await contract.__mintFree(function_params[0]);
@@ -3824,6 +5556,10 @@ export async function runContractFunction(contract_name_input, function_name, fu
     transaction_info = await contract.getMintPrice();
   } else if (function_name === '__setMintPrice') {
     transaction_info = await contract.__setMintPrice(function_params[0]);
+  } else if (function_name === 'getMaxSupply') {
+    transaction_info = await contract.getMaxSupply();
+  } else if (function_name === '__setMaxSupply') {
+    transaction_info = await contract.__setMaxSupply(function_params[0]);
   } else if (function_name === 'tokenURI') {
     transaction_info = await contract.tokenURI(function_params[0]);
   } else if (function_name === '__setTokenURI') {
@@ -3911,8 +5647,8 @@ export async function mintNFT(contract_name_input, mint_button, params) {
   // Assigns the preset contract address if it exists
   // If not, `contract_name_input` is assumed to be the address itself
   var contract_address;
-  if (contract_address_dict[contract_name_input]) {
-    contract_address = contract_address_dict[contract_name_input][network_name];
+  if (contract_dict[contract_name_input]) {
+    contract_address = contract_dict[contract_name_input]['Address'][network_name];
   } else {
     contract_address = contract_name_input;
   };
@@ -3922,7 +5658,7 @@ export async function mintNFT(contract_name_input, mint_button, params) {
   if (!signer) {
     signer = await setSigner();
   };
-  const iface = new Interface(json_ABI_list[contract_name_input][network_name]);
+  const iface = new Interface(contract_dict[contract_name_input]['ABI']);
   iface.format(FormatTypes.full);
   const contract = new ethers.Contract(contract_address, iface, signer);
   var transactionInfo;
@@ -4015,7 +5751,7 @@ export async function getUserStats(address_input) {
   if (!address_input) {
     address_input = await setUserAddress();
   };
-  const contract = new ethers.Contract(contract_address_dict['LMNTL'][network_name], json_ABI_list['LMNTL'][network_name], provider);
+  const contract = new ethers.Contract(contract_dict['LMNTL']['Address'][network_name], contract_dict['LMNTL']['ABI'], provider);
   user_token_ID = await contract.getPrimaryTokenID(address_input);
   const user_primary_stats = await contract.getUserPrimaryStats(address_input);
   console.log('User Primary Stats: ', user_primary_stats);
@@ -4034,9 +5770,9 @@ export async function levelUp(level_up_button) {
   if (!user_metadata_URI) {
     user_metadata = await setUserMetadata();
   };
-  const iface = new Interface(json_ABI_list['LMNTL'][network_name]);
+  const iface = new Interface(contract_dict['LMNTL']['ABI']);
   iface.format(FormatTypes.full);
-  const contract = new ethers.Contract(contract_address_dict['LMNTL'][network_name], iface, signer);
+  const contract = new ethers.Contract(contract_dict['LMNTL']['Address'][network_name], iface, signer);
 
   const old_metadata_base_address = user_metadata_URI.split('LMNTL')[0];
   const old_metadata_filename = 'LMNTL' + user_metadata_URI.split('LMNTL')[1];

@@ -41,10 +41,34 @@ import scene_image_13 from '../../image/demo2/13.png'
 import scene_image_14 from '../../image/demo2/14.png'
 import scene_image_15 from '../../image/demo2/15.png'
 import scene_image_16 from '../../image/demo2/16.png'
+import scene_image_17 from '../../image/demo2/17.png'
+import scene_image_18 from '../../image/demo2/18.png'
+import scene_image_19 from '../../image/demo2/19.png'
+import scene_image_20 from '../../image/demo2/20.png'
+import scene_image_21 from '../../image/demo2/21.png'
+import scene_image_22 from '../../image/demo2/22.png'
+import scene_image_23 from '../../image/demo2/23.png'
+import scene_image_24 from '../../image/demo2/24.png'
+import scene_image_25 from '../../image/demo2/25.png'
+import scene_image_26 from '../../image/demo2/26.png'
+import scene_image_27 from '../../image/demo2/27.png'
+import scene_image_28 from '../../image/demo2/28.png'
+import scene_image_29 from '../../image/demo2/29.png'
+import scene_image_30 from '../../image/demo2/30.png'
+import scene_image_31 from '../../image/demo2/31.png'
+import scene_image_32 from '../../image/demo2/32.png'
+import scene_image_33 from '../../image/demo2/33.png'
+import scene_image_34 from '../../image/demo2/34.png'
+import scene_image_35 from '../../image/demo2/35.png'
+import scene_image_36 from '../../image/demo2/36.png'
+import scene_image_37 from '../../image/demo2/37.png'
+import scene_image_38 from '../../image/demo2/38.png'
+import scene_image_39 from '../../image/demo2/39.png'
+import scene_image_40 from '../../image/demo2/40.png'
 
-import cursor_image_OG from '../../image/button-select-rectangle.png'
-import cursor_image_Next from '../../image/button-select-rectangle-next.png'
-import cursor_image_Large from '../../image/button-select-rectangle-large.png'
+import cursor_image_Next from '../../image/cursors/cursor-next.png'
+import cursor_image_Medium from '../../image/cursors/cursor-medium.png'
+import cursor_image_Large from '../../image/cursors/cursor-large.png'
 
 import player_interface_1 from '../../image/player_interfaces/ipad-banner-1.png'
 import player_interface_2 from '../../image/player_interfaces/ipad-banner-2.png'
@@ -52,8 +76,10 @@ import player_interface_3 from '../../image/player_interfaces/ipad-banner-3.png'
 import player_interface_next from '../../image/player_interfaces/ipad-banner-next.png'
 
 
+import EXP_plus_5 from '../../image/animations/exp/EXP_plus_5.gif'
 import EXP_plus_10 from '../../image/animations/exp/EXP_plus_10.gif'
 
+import TAP_plus_3 from '../../image/animations/TAP_plus_3.gif'
 
 import './gamegui.css'
 
@@ -112,7 +138,8 @@ const scene_dict = {0: {'background': scene_image_0,
                         'button_1': 'next',
                         'button_2': '',
                         'button_3': '',
-                        'wallet_button': ''},
+                        'wallet_button': '',
+                        'exp': 5},
                     8: {'background': scene_image_8,
                         'button_1': 'next',
                         'button_2': '',
@@ -164,9 +191,157 @@ const scene_dict = {0: {'background': scene_image_0,
                         'button_2': '',
                         'button_3': '',
                         'wallet_button': '',
+                        'exp': 0},
+                    17: {'background': scene_image_17,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    18: {'background': scene_image_18,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    19: {'background': scene_image_19,
+                        'button_1': 'large',
+                        'button_2': 'grey',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    20: {'background': scene_image_20,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    21: {'background': scene_image_21,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    22: {'background': scene_image_22,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    23: {'background': scene_image_23,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    24: {'background': scene_image_24,
+                        'button_1': 'large',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    25: {'background': scene_image_25,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 10},
+                    26: {'background': scene_image_26,
+                        'button_1': 'grey',
+                        'button_2': 'large',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    27: {'background': scene_image_27,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    28: {'background': scene_image_28,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    29: {'background': scene_image_29,
+                        'button_1': 'large',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    30: {'background': scene_image_30,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    31: {'background': scene_image_31,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    32: {'background': scene_image_32,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    33: {'background': scene_image_33,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    34: {'background': scene_image_34,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    35: {'background': scene_image_35,
+                        'button_1': 'large',
+                        'button_2': 'large',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0},
+                    36: {'background': scene_image_36,
+                        'button_1': '',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'claim_button': 'medium',
+                        'exp': 0},
+                    37: {'background': scene_image_37,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': 'next'},
+                    38: {'background': scene_image_38,
+                        'button_1': '',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 10},
+                    39: {'background': scene_image_39,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
+                        'exp': 0,
+                        'tap': 3},
+                    40: {'background': scene_image_40,
+                        'button_1': 'next',
+                        'button_2': '',
+                        'button_3': '',
+                        'wallet_button': '',
                         'exp': 0}};
 
-const EXP_dict = {10: EXP_plus_10};
+const EXP_animation_dict = {5: EXP_plus_5,
+                            10: EXP_plus_10};
+
+const TAP_animation_dict = {3: TAP_plus_3};
 
 const player_interface_dict = {1: player_interface_1,
                                2: player_interface_2,
@@ -180,6 +355,7 @@ var button_cursor_1 = cursor_image_Next;
 var button_cursor_2 = cursor_image_Next;
 var button_cursor_3 = cursor_image_Next;
 var button_cursor_4 = cursor_image_Next;
+var button_cursor_5 = cursor_image_Next;
 
 
 var mobile_device = false;
@@ -195,6 +371,9 @@ if (window.screen.width < window.screen.height) {
   console.log("window.screen.width: ", window.screen.width);
   console.log("window.screen.height: ", window.screen.height);
 };
+
+var rotate_game = false;
+
 
 //AppStart
 const GameGUI = () => {
@@ -227,6 +406,11 @@ function pause(time) {
 
 async function onLoad() {
   await changeScene(0);
+  if (mobile_device || vertical_display) {
+    //rotate_game = true;
+    document.getElementById('playerGameInterfaceImage').style.opacity = '1';
+    document.getElementById('playerGameInterfaceContainer').style.top = '100%';
+  }
 }
 
 
@@ -259,21 +443,33 @@ async function changeScene(new_scene_number = false) {
   const button_2 = document.getElementById('gameSceneCursorImage2');
   const button_3 = document.getElementById('gameSceneCursorImage3');
   const button_4 = document.getElementById('gameSceneCursorImage4');
-
+  const button_5 = document.getElementById('gameSceneCursorImage5');
   
   // Button 1
   if (scene_dict[current_scene]['button_1'] === 'next') {
     button_cursor_1 = cursor_image_Next;
-  } else if (scene_dict[current_scene]['button_1'] === 'large') {
+  } else if (scene_dict[current_scene]['button_1'] === 'large' || scene_dict[current_scene]['button_1'] === 'grey') {
     button_cursor_1 = cursor_image_Large;
   } else {
     button_cursor_1 = '';
   };
+  if (button_1) {
+    if (scene_dict[current_scene]['button_1'] === 'grey') {
+      button_1.style.filter = 'brightness(35%)';
+    } else {
+      button_1.style.filter = 'brightness(100%)';
+    }
+  }
 
 
   // Button 2
-  if (scene_dict[current_scene]['button_2'] === 'large') {
+  if (scene_dict[current_scene]['button_2'] === 'large'|| scene_dict[current_scene]['button_2'] === 'grey') {
     button_cursor_2 = cursor_image_Large;
+    if (scene_dict[current_scene]['button_2'] === 'grey') {
+      button_2.style.filter = 'brightness(35%)';
+    } else {
+      button_2.style.filter = 'brightness(100%)';
+    };
   } else {
     button_cursor_2 = '';
   };
@@ -297,13 +493,28 @@ async function changeScene(new_scene_number = false) {
   };
 
 
-  // EXP
-  var EXP_animation = '';
-  if (scene_dict[current_scene]['exp']) {
-    const EXP_gain = scene_dict[current_scene]['exp'];
-    EXP_animation = EXP_dict[EXP_gain];
+  // Claim Button
+  if (scene_dict[current_scene]['claim_button'] === 'next') {
+    button_cursor_5 = cursor_image_Next;
+  } else if (scene_dict[current_scene]['claim_button'] === 'medium') {
+    button_cursor_5 = cursor_image_Medium;
+  } else if (scene_dict[current_scene]['claim_button'] === 'large') {
+    button_cursor_5 = cursor_image_Large;
   } else {
-    EXP_animation = '';
+    button_cursor_5 = '';
+  };
+
+
+  // EXP
+  var EXP_gain = 0;
+  if (scene_dict[current_scene]['exp']) {
+    EXP_gain = scene_dict[current_scene]['exp'];
+  };
+
+  // TAP
+  var TAP_gain = 0;
+  if (scene_dict[current_scene]['tap']) {
+    TAP_gain = scene_dict[current_scene]['tap'];
   };
   
 
@@ -313,22 +524,39 @@ async function changeScene(new_scene_number = false) {
     button_2.style.opacity = '0';
     button_3.style.opacity = '0';
     button_4.style.opacity = '0';
+    button_5.style.opacity = '0';
     button_1.src = button_cursor_1;
     button_2.src = button_cursor_2;
     button_3.src = button_cursor_3;
     button_4.src = button_cursor_4;
-    document.getElementById('expAnimation').src = EXP_animation;
-    if (EXP_animation) {
-      await pause(5000);
-      document.getElementById('expAnimation').src = '';
+    button_5.src = button_cursor_5;
+    if (EXP_gain) {
+      gainEXP(EXP_gain);
+      await pause(2000);
+    };
+    if (TAP_gain) {
+      gainTAP(TAP_gain);
+      await pause(2000);
     };
   };
 };
 
 
 async function gainEXP(EXP_gain) {
+  if (EXP_gain > 0) {
+    document.getElementById('expAnimation').src = EXP_animation_dict[EXP_gain];
+    await pause(5000);
+    document.getElementById('expAnimation').src = '';
+  };
+};
 
-}
+async function gainTAP(TAP_gain) {
+  if (TAP_gain > 0) {
+    document.getElementById('expAnimation').src = TAP_animation_dict[TAP_gain];
+    await pause(5000);
+    document.getElementById('expAnimation').src = '';
+  };
+};
 
 
 
@@ -337,6 +565,7 @@ function handleMouseOver(event) {
   const button_2 = document.getElementById('gameSceneCursorImage2');
   const button_3 = document.getElementById('gameSceneCursorImage3');
   const button_4 = document.getElementById('gameSceneCursorImage4');
+  const button_5 = document.getElementById('gameSceneCursorImage5');
   const button_moused_ID = event.target.id.split('gameSceneCursorImage')[1];
   console.log(button_moused_ID);
   if (button_moused_ID === '1') {
@@ -344,21 +573,31 @@ function handleMouseOver(event) {
     button_2.style.opacity = '0';
     button_3.style.opacity = '0';
     button_4.style.opacity = '0';
+    button_5.style.opacity = '0';
   } else if (button_moused_ID === '2') {
     button_1.style.opacity = '0';
     button_2.style.opacity = '1';
     button_3.style.opacity = '0';
     button_4.style.opacity = '0';
+    button_5.style.opacity = '0';
   } else if (button_moused_ID === '3') {
     button_1.style.opacity = '0';
     button_2.style.opacity = '0';
     button_3.style.opacity = '1';
     button_4.style.opacity = '0';
+    button_5.style.opacity = '0';
   } else if (button_moused_ID === '4') {
     button_1.style.opacity = '0';
     button_2.style.opacity = '0';
     button_3.style.opacity = '0';
     button_4.style.opacity = '1';
+    button_5.style.opacity = '0';
+  } else if (button_moused_ID === '5') {
+    button_1.style.opacity = '0';
+    button_2.style.opacity = '0';
+    button_3.style.opacity = '0';
+    button_4.style.opacity = '0';
+    button_5.style.opacity = '1';
   };
 };
 
@@ -371,28 +610,23 @@ function handleMouseOver(event) {
 return (
   <div className='gameGUI'>
     <div className='gameGUIContainer'
-    style={(vertical_display) ? {
+    style={(rotate_game) ? {
       transform: "rotate(90deg)",
       transformOrigin: "left right"} :
       {}}>
-      <div className='gameSceneContainer'>
-        <img src={background_image} alt='' id='backgroundImage' className='backgroundImage' 
-        style={(vertical_display) ? {
-          width: "85vh",
-          margin: "-100% 0% 0% 0%",
-          padding: "100% 0% 100% 0%"} :
-          {}}/>
+      <div className='gameSceneContainer' 
+      style={(vertical_display) ? {
+        width: "100vw",
+        margin: "0% 0% 0% 0%"} :
+        {}}>
+        <img src={background_image} alt='' id='backgroundImage' className='backgroundImage'/>
         <img src='' alt='' id='expAnimation' className='expAnimation'
           style={{opacity:'1'}}/>
         <div className='gameSceneGUIContainer'>
-          <div className='playerGameInterfaceContainer'>
+          <div id='playerGameInterfaceContainer' className='playerGameInterfaceContainer'>
             <img src={player_interface_image} alt='' id='playerGameInterfaceImage' className='playerGameInterfaceImage'
-            style={{opacity:'1'}}/>
-            <div className='playerGameInterfaceCursorsContainer' id='playerGameInterfaceCursorsContainer'
-            style={(vertical_display) ? {
-              top: "7%",
-              left: "-15.5%"} :
-              {}}>
+            style={{opacity:'0'}}/>
+            <div className='playerGameInterfaceCursorsContainer' id='playerGameInterfaceCursorsContainer'>
               <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_3} alt='' id='gameSceneCursorImage3' className='playerGameInterfaceCursorImage'
               style={{opacity:'0'}}/>
               <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_2} alt='' id='gameSceneCursorImage2' className='playerGameInterfaceCursorImage' 
@@ -403,6 +637,10 @@ return (
           </div>
           <div className='walletCursorContainer' id='gameSceneCursorContainer4'>
             <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_4} alt='' id='gameSceneCursorImage4' className='playerGameInterfaceCursorImage'
+            style={{opacity:'0'}}/>
+          </div>
+          <div className='claimCursorContainer' id='gameSceneCursorContainer5'>
+            <img onClick={handleButtonClick} onMouseOver={handleMouseOver} src={button_cursor_5} alt='' id='gameSceneCursorImage5' className='playerGameInterfaceCursorImage'
             style={{opacity:'0'}}/>
           </div>
         </div>  

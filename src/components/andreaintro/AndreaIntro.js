@@ -1,7 +1,7 @@
 import React from 'react'
 
 import andrea_intro_banner from '../../image/andrea-intro-banner.png'
-import button_select_rectangle from '../../image/button-select-rectangle.png'
+import button_select_rectangle from '../../image/cursors/cursor-OG.png'
 
 import './andreaintro.css'
 
